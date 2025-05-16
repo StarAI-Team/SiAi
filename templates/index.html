@@ -128,19 +128,14 @@
       Your browser does not support the video tag.
     </video>
 
-    <!-- 🔹 Minimalistic Hamburger Menu (Top-Left) -->
-    <div class="absolute top-6 left-6 z-20">
-      <button id="menuToggle" class="text-white text-3xl focus:outline-none">
-        &#9776; <!-- Hamburger Icon -->
-      </button>
+    
+      <!-- 🔹 Horizontal Underlined Menu (Top-Right) -->
+<div class="absolute top-6 right-6 z-20 flex space-x-6 text-sm">
+  <a href="#solutions" class="text-white underline hover:text-yellow-300 transition">Solutions</a>
+  <a href="#contact" class="text-white underline hover:text-yellow-300 transition">Contact</a>
+  <a href="#about" class="text-white underline hover:text-yellow-300 transition">About</a>
+</div>
 
-      <!-- 🔹 Dropdown Menu -->
-      <div id="menuDropdown" class="hidden mt-2 bg-black bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg p-4 text-sm space-y-2">
-        <a href="#solutions" class="block text-white hover:underline">Solutions</a>
-        <a href="#contact" class="block text-white hover:underline">Contact</a>
-        <a href="#about" class="block text-white hover:underline">About</a>
-      </div>
-    </div>
 
     <!-- Hero Text -->
     <div id="heroText" class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center z-10 fade-up">
