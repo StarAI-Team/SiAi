@@ -109,9 +109,12 @@
 .animate-float-slow {
   animation: float-slow 8s ease-in-out infinite;
 }
-
-  
-</style>
+  @media (min-width: 768px) {
+    .government-card {
+      grid-row: span 2; /* spans 2 rows to make it visually taller */
+      height: 34rem;
+    }
+  }
 
       
   </style>
@@ -119,17 +122,34 @@
 </head>
 <body class="bg-black text-white font-sans">
   <!-- Hero Section -->
-<section class="h-screen relative flex items-center justify-center text-center">
+  <section class="h-screen relative flex items-center justify-center text-center">
     <video autoplay loop muted id="bgVideo" class="bg-video">
       <source src="/static/intro.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
-<div id="heroText" class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center z-10 fade-up">
-  <h1 class="text-5xl md:text-6xl font-light mb-4">Empowering Africa with Ethical AI</h1>
-  <p class="max-w-xl text-lg mb-6">At SiAi, we harmonize humans and machines for a thriving Africa.</p>
-  <a href="#solutions" class="bg-white text-black px-6 py-3 font-medium rounded-full hover:bg-gray-300 transition">Discover Our Solutions</a>
-</div>
+    <!-- 🔹 Minimalistic Hamburger Menu (Top-Left) -->
+    <div class="absolute top-6 left-6 z-20">
+      <button id="menuToggle" class="text-white text-3xl focus:outline-none">
+        &#9776; <!-- Hamburger Icon -->
+      </button>
+
+      <!-- 🔹 Dropdown Menu -->
+      <div id="menuDropdown" class="hidden mt-2 bg-black bg-opacity-80 backdrop-blur-sm rounded-lg shadow-lg p-4 text-sm space-y-2">
+        <a href="#solutions" class="block text-white hover:underline">Solutions</a>
+        <a href="#contact" class="block text-white hover:underline">Contact</a>
+        <a href="#about" class="block text-white hover:underline">About</a>
+      </div>
+    </div>
+
+    <!-- Hero Text -->
+    <div id="heroText" class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center z-10 fade-up">
+      <h1 class="text-5xl md:text-6xl font-light mb-4">Empowering Africa with Ethical AI</h1>
+      <p class="max-w-xl text-lg mb-6">At SiAi, we harmonize humans and machines for a thriving Africa.</p>
+      <a href="#solutions" class="bg-white text-black px-6 py-3 font-medium rounded-full hover:bg-gray-300 transition">Discover Our Solutions</a>
+    </div>
+  </section>
+
 
 
   </section>
@@ -145,83 +165,82 @@
 </section>
 
 
-<!-- Parallax Section -->
-
-<!--<div class="h-[1000px] bg-fixed bg-center bg-cover" style="background-image: url('./p.jpg')" data-aos="fade-in">
-    <div class="h-full w-full flex items-center justify-center bg-black bg-opacity-60">
-      <h2 class="text-4xl text-white text-center px-6">Harnessing the Power of AI with African Wisdom</h2>
-    </div>
-  </div>-->
-
 <!-- Industries We Empower -->
-
 <section class="py-20 px-6 md:px-24 bg-black" data-aos="fade-up">
-    <h2 class="text-4xl text-center mb-12">Industries We Empower</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+  <h2 class="text-4xl text-center mb-12 text-white">Industries We Empower</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
 
-
-    <div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/transport.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in">
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
-      
-        <!-- Text content -->
-        <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-          <h3 class="text-xl font-semibold text-white mb-2">Transport & Mobility</h3>
-          <p class="text-gray-300 text-sm">Streamlining logistics through smart AI systems</p>
-        </div>
+    <!-- Transport & Mobility -->
+    <div class="relative h-72 md:h-[28rem] rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/transport.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in">
+      <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+        <h3 class="text-xl font-semibold text-white mb-2">Transport & Mobility</h3>
+        <p class="text-gray-300 text-sm">Streamlining logistics through smart AI systems</p>
       </div>
-      
+    </div>
 
-  <!-- Industries We Empower (Image-Based Cards with Overlay) -->
+    <!-- Government (Prominent) -->
+    <div class="relative rounded-xl shadow-2xl overflow-hidden group hover:scale-105 transition government-card" style="background-image: url('/static/icons/government.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="500">
+      <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+        <h3 class="text-2xl font-bold text-white mb-2">Government & NGOs</h3>
+        <p class="text-gray-300 text-sm">Transparent and efficient AI solutions</p>
+      </div>
+    </div>
 
-<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/insurance.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="100">
-  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
-  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-    <h3 class="text-xl font-semibold text-white mb-2">Insurance</h3>
-    <p class="text-gray-300 text-sm">AI-powered risk and fraud detection</p>
+
+
+    <!-- Customer Service -->
+    <div class="relative h-64 md:h-[26rem] rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/call-center.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="200">
+      <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+        <h3 class="text-xl font-semibold text-white mb-2">Customer Service & Call Centers</h3>
+        <p class="text-gray-300 text-sm">24/7 service with AI Assistants</p>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="relative h-64 md:h-[22rem] rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/education.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="300">
+      <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+        <h3 class="text-xl font-semibold text-white mb-2">Education</h3>
+        <p class="text-gray-300 text-sm">Smart tutoring and curriculum personalization</p>
+      </div>
+    </div>
+
+     <!-- Insurance -->
+     <div class="relative h-64 md:h-[24rem] rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/insurance.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="100">
+      <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+        <h3 class="text-xl font-semibold text-white mb-2">Insurance</h3>
+        <p class="text-gray-300 text-sm">AI-powered risk and fraud detection</p>
+      </div>
+    </div>
+    <!-- Tourism -->
+    <div class="relative h-64 md:h-[23rem] rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/tourism.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="400">
+      <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+        <h3 class="text-xl font-semibold text-white mb-2">Tourism & Travel</h3>
+        <p class="text-gray-300 text-sm">  AI-powered travel assistants that help book flights, bus tickets, rent cars, suggest personalized itineraries, and streamline customer support — built for the future of tourism and travel.
+        </p>
+      </div>
+    </div>
+
+    
+
+    <!-- Medical / Health -->
+    <div class="relative h-64 md:h-[25rem] rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/health.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="600">
+      <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+        <h3 class="text-xl font-semibold text-white mb-2">Medical / Health</h3>
+        <p class="text-gray-300 text-sm">AI diagnostics and healthcare automation</p>
+      </div>
+    </div>
+
   </div>
-</div>
-
-<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/call-center.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="200">
-  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
-  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-    <h3 class="text-xl font-semibold text-white mb-2">Customer Service & Call Centers</h3>
-    <p class="text-gray-300 text-sm">24/7 service with AI Assistants</p>
-  </div>
-</div>
-
-<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/education.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="300">
-  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
-  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-    <h3 class="text-xl font-semibold text-white mb-2">Education</h3>
-    <p class="text-gray-300 text-sm">Smart tutoring and curriculum personalization</p>
-  </div>
-</div>
-
-<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/tourism.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="400">
-  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
-  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-    <h3 class="text-xl font-semibold text-white mb-2">Tourism & Travel</h3>
-    <p class="text-gray-300 text-sm">AI-guided experiences and planning</p>
-  </div>
-</div>
-
-<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/government.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="500">
-  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
-  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-    <h3 class="text-xl font-semibold text-white mb-2">Government & NGOs</h3>
-    <p class="text-gray-300 text-sm">Transparent and efficient AI solutions</p>
-  </div>
-</div>
-
-<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/health.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="600">
-  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
-  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-    <h3 class="text-xl font-semibold text-white mb-2">Medical / Health</h3>
-    <p class="text-gray-300 text-sm">AI diagnostics and healthcare automation</p>
-  </div>
-</div>
 </section>
+
+
 
  <!-- AI Solutions Overview -->
 
@@ -229,12 +248,13 @@
     <h2 class="text-4xl text-center mb-12">AI Solutions Overview</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-  <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/ai-hardware.jpg'); background-size: cover; background-position: center;" data-aos="fade-right">
-    <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
-    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
-      <h3 class="text-xl font-semibold text-white">AI Hardware (Advanced Computers)</h3>
-    </div>
-  </div>
+      <a href="/hardware" class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500 block" style="background-image: url('/static/images/ai-hardware.jpg'); background-size: cover; background-position: center;" data-aos="fade-right">
+        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
+        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+          <h3 class="text-xl font-semibold text-white">AI Hardware (Computer Hardware)</h3>
+        </div>
+      </a>
+      
 
   <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/drones.jpg'); background-size: cover; background-position: center;" data-aos="fade-left" data-aos-delay="100">
     <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
@@ -253,7 +273,7 @@
   <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/ai-assistants.jpg'); background-size: cover; background-position: center;" data-aos="fade-left" data-aos-delay="300">
     <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
     <div class="absolute inset-0 flex items-center justify-center text-center px-4">
-      <h3 class="text-xl font-semibold text-white">AI Assistants</h3>
+      <h3 class="text-xl font-semibold text-white">AI Agent Assistants</h3>
     </div>
   </div>
 
@@ -522,6 +542,15 @@
     backgroundColor: 0x000000  
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menuDropdown');
 
+    toggle.addEventListener('click', function () {
+      menu.classList.toggle('hidden');
+    });
+  });
+</script>
 </body>
 </html>

@@ -6,5 +6,9 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route('/hardware')
+def hardware():
+    return render_template('hardware.html')
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
