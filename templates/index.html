@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SiAi – Empowering Africa with Ethical AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <script src="https://unpkg.com/lottie-web@5.9.4/build/player/lottie.min.js"></script>
+  <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <style>
+    video.bg-video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .fade-up {
+        opacity: 0;
+        transform: translateY(40px);
+    transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
+      }
+    
+      .fade-up.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      #custom-cursor {
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        mix-blend-mode: screen;
+        z-index: 9999;
+        pointer-events: none;
+        opacity: 0; /* Start invisible */
+      }
+    
+      .hover-target {
+        cursor: default !important; /* Force arrow cursor */
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+      
+    
+      .hover-target:hover {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+      }
+      @keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 1.5s ease forwards;
+}
+
+     /* 🔸 Glow Text */
+  @keyframes intense-glow {
+    0%, 100% {
+    text-shadow: none; /
+  }
+  50% {
+    text-shadow:
+      0 0 12px #fde047,
+      0 0 24px #facc15,
+      0 0 36px #f59e0b,
+      0 0 48px #f59e0b; 
+  }
+}
+  .fade-in-sub {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1.8s ease 1s forwards;
+  }
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  .glow-text {
+  animation: intense-glow 3.5s ease-in-out infinite;
+  color: #facc15; 
+}
+
+  .animated-bg {
+    background: linear-gradient(135deg, #100026, #000d2f, #000000, #2a275c);
+    background-size: 300% 300%;
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes float-slow {
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(-15px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+  
+</style>
+
+      
+  </style>
+
+</head>
+<body class="bg-black text-white font-sans">
+  <!-- Hero Section -->
+<section class="h-screen relative flex items-center justify-center text-center">
+    <video autoplay loop muted id="bgVideo" class="bg-video">
+      <source src="/static/intro.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+<div id="heroText" class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center z-10 fade-up">
+  <h1 class="text-5xl md:text-6xl font-light mb-4">Empowering Africa with Ethical AI</h1>
+  <p class="max-w-xl text-lg mb-6">At SiAi, we harmonize humans and machines for a thriving Africa.</p>
+  <a href="#solutions" class="bg-white text-black px-6 py-3 font-medium rounded-full hover:bg-gray-300 transition">Discover Our Solutions</a>
+</div>
+
+
+  </section>
+
+  <!-- Our Vision -->
+<section class="relative h-auto py-24 px-6 md:px-24 bg-black text-center" data-aos="fade-up">
+  <div class="max-w-3xl mx-auto text-white">
+    <h2 class="text-4xl font-semibold mb-6">Our Vision</h2>
+    <p class="text-lg text-gray-300">
+      SiAi exists to serve Africa through ethical AI — empowering people, creating harmony between technology and humanity, and driving progress through collaboration.
+    </p>
+  </div>
+</section>
+
+
+<!-- Parallax Section -->
+
+<!--<div class="h-[1000px] bg-fixed bg-center bg-cover" style="background-image: url('./p.jpg')" data-aos="fade-in">
+    <div class="h-full w-full flex items-center justify-center bg-black bg-opacity-60">
+      <h2 class="text-4xl text-white text-center px-6">Harnessing the Power of AI with African Wisdom</h2>
+    </div>
+  </div>-->
+
+<!-- Industries We Empower -->
+
+<section class="py-20 px-6 md:px-24 bg-black" data-aos="fade-up">
+    <h2 class="text-4xl text-center mb-12">Industries We Empower</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+
+
+    <div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/transport.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+      
+        <!-- Text content -->
+        <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+          <h3 class="text-xl font-semibold text-white mb-2">Transport & Mobility</h3>
+          <p class="text-gray-300 text-sm">Streamlining logistics through smart AI systems</p>
+        </div>
+      </div>
+      
+
+  <!-- Industries We Empower (Image-Based Cards with Overlay) -->
+
+<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/insurance.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="100">
+  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+    <h3 class="text-xl font-semibold text-white mb-2">Insurance</h3>
+    <p class="text-gray-300 text-sm">AI-powered risk and fraud detection</p>
+  </div>
+</div>
+
+<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/call-center.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="200">
+  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+    <h3 class="text-xl font-semibold text-white mb-2">Customer Service & Call Centers</h3>
+    <p class="text-gray-300 text-sm">24/7 service with AI Assistants</p>
+  </div>
+</div>
+
+<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/education.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="300">
+  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+    <h3 class="text-xl font-semibold text-white mb-2">Education</h3>
+    <p class="text-gray-300 text-sm">Smart tutoring and curriculum personalization</p>
+  </div>
+</div>
+
+<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/tourism.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="400">
+  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+    <h3 class="text-xl font-semibold text-white mb-2">Tourism & Travel</h3>
+    <p class="text-gray-300 text-sm">AI-guided experiences and planning</p>
+  </div>
+</div>
+
+<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/government.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="500">
+  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+    <h3 class="text-xl font-semibold text-white mb-2">Government & NGOs</h3>
+    <p class="text-gray-300 text-sm">Transparent and efficient AI solutions</p>
+  </div>
+</div>
+
+<div class="relative h-64 rounded-xl shadow overflow-hidden group hover:scale-105 transition" style="background-image: url('/static/icons/health.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in" data-aos-delay="600">
+  <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-70 transition duration-300"></div>
+  <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+    <h3 class="text-xl font-semibold text-white mb-2">Medical / Health</h3>
+    <p class="text-gray-300 text-sm">AI diagnostics and healthcare automation</p>
+  </div>
+</div>
+</section>
+
+ <!-- AI Solutions Overview -->
+
+<section id="solutions" class="py-24 px-6 md:px-24 bg-gray-900 text-white" data-aos="fade-up">
+    <h2 class="text-4xl text-center mb-12">AI Solutions Overview</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+  <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/ai-hardware.jpg'); background-size: cover; background-position: center;" data-aos="fade-right">
+    <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+      <h3 class="text-xl font-semibold text-white">AI Hardware (Advanced Computers)</h3>
+    </div>
+  </div>
+
+  <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/drones.jpg'); background-size: cover; background-position: center;" data-aos="fade-left" data-aos-delay="100">
+    <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+      <h3 class="text-xl font-semibold text-white">Drone Devices</h3>
+    </div>
+  </div>
+
+  <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/iot-security.jpg'); background-size: cover; background-position: center;" data-aos="fade-right" data-aos-delay="200">
+    <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+      <h3 class="text-xl font-semibold text-white">IoT Security Systems</h3>
+    </div>
+  </div>
+
+  <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/ai-assistants.jpg'); background-size: cover; background-position: center;" data-aos="fade-left" data-aos-delay="300">
+    <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+      <h3 class="text-xl font-semibold text-white">AI Assistants</h3>
+    </div>
+  </div>
+
+  <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/erp.jpg'); background-size: cover; background-position: center;" data-aos="fade-right" data-aos-delay="400">
+    <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+      <h3 class="text-xl font-semibold text-white">AI ERP</h3>
+    </div>
+  </div>
+
+  <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/e-gov.jpg'); background-size: cover; background-position: center;" data-aos="fade-left" data-aos-delay="500">
+    <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+      <h3 class="text-xl font-semibold text-white">e-Government Platforms</h3>
+    </div>
+  </div>
+
+  <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500" style="background-image: url('/static/images/software-dev.jpg'); background-size: cover; background-position: center;" data-aos="fade-up" data-aos-delay="600">
+    <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+      <h3 class="text-xl font-semibold text-white">Software Development Solutions</h3>
+    </div>
+  </div>
+
+</div>
+  </section>
+
+
+<!-- CSR Impact with Full Background and Typewriter -->
+<section class="relative py-32 px-6 md:px-24 text-center bg-black text-white overflow-hidden" style="background-image: url('/static/images/light.jpg'); background-size: cover; background-position: center;" data-aos="zoom-in">
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <h2 id="csr-typewriter" class="text-4xl md:text-5xl font-semibold whitespace-nowrap overflow-hidden border-r-4 border-yellow-300 inline-block text-yellow-300 mb-6"></h2>
+
+    <p class="text-lg text-gray-200 mb-4">
+      A portion of every profit powers <span class="text-white font-semibold">real opportunities</span> for children across Africa —
+      education, tools, and dreams for a brighter tomorrow.
+    </p>
+    <p class="text-sm text-gray-400 italic">Together, we’re shaping a future where no one is left behind.</p>
+  </div>
+</section>
+
+
+<!-- Contact CTA -->
+<section id="contact" class="relative py-32 px-6 md:px-24 text-center text-white overflow-hidden animated-bg" data-aos="fade-up">
+  
+  <!-- 🔸 Particle Canvas Overlay -->
+  <canvas id="particles-canvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
+
+  <!-- 🔸 Grid Light Background -->
+  <div class="absolute inset-0 opacity-10 bg-[url('./images/grid-light.svg')] bg-repeat z-0"></div>
+
+  <!-- 🔸 Main Content -->
+  <div class="relative z-10">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-6 text-yellow-300 glow-text">Let’s Build the Future Together</h2>
+    <p class="fade-in-sub text-gray-300 max-w-xl mx-auto mb-8">
+      Whether you're a visionary, a creator, or just curious — your journey with ethical AI starts here.
+    </p>
+    <!-- Contact Button with WhatsApp and Phone Icons -->
+<button class="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg shadow hover:shadow-xl hover:scale-105 transition duration-300 inline-flex items-center gap-4">
+  <span>Contact Us</span>
+
+  <!-- WhatsApp Icon -->
+  <i class="fab fa-whatsapp text-green-500 text-xl cursor-pointer"
+     title="Chat on WhatsApp"
+     onclick="window.open('https://wa.me/263712345678', '_blank')"></i>
+
+  <!-- Phone Icon -->
+  <i class="fas fa-phone text-green-600 text-lg cursor-pointer"
+     title="Call Us"
+     onclick="window.location.href='tel:+263712345678'"></i>
+</button>
+
+  </div>
+</section>
+
+<!-- What's Next + Waves Background -->
+<div id="bgVanta" class="relative overflow-hidden">
+
+  <!-- What's Next Section -->
+  <section class="py-24 px-6 md:px-24 text-center text-white min-h-[500px] flex flex-col justify-center items-center gap-10 relative z-10">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Coming Soon...</h2>
+    <p class="text-lg text-gray-300 max-w-xl mb-8">We’re crafting more than code — we’re creating experiences.</p>
+
+    <!-- Boxes Row -->
+    <div class="flex flex-wrap gap-6 justify-center">
+      <!-- AI Academy -->
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 w-64 text-white hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="100">
+        <div class="text-3xl mb-4">🎓</div>
+        <h3 class="text-xl font-semibold mb-2">AI Academy</h3>
+        <p class="text-sm text-gray-300">Learn, build, and grow through curated AI learning experiences.</p>
+      </div>
+
+      <!-- Careers Page -->
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 w-64 text-white hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="200">
+        <div class="text-3xl mb-4">🧑🏾‍💻</div>
+        <h3 class="text-xl font-semibold mb-2">Careers Page</h3>
+        <p class="text-sm text-gray-300">Join our team of passionate problem-solvers shaping Africa’s AI future.</p>
+      </div>
+
+      <!-- AI in Action -->
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 w-64 text-white hover:scale-105 transition duration-300"
+           data-aos="fade-up" data-aos-delay="300">
+        <div class="text-3xl mb-4">🎬</div>
+        <h3 class="text-xl font-semibold mb-2">AI in Action</h3>
+        <p class="text-sm text-gray-300">See our AI tools in motion with immersive visual demos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Section -->
+  <section class="h-[500px] flex items-center justify-center px-6 relative z-10">
+    <div class="text-center">
+      <h2 class="text-4xl md:text-5xl font-light text-white mb-4 tracking-wide animate-fade-in">
+        AI Isn’t Just the Future —
+      </h2>
+      <p class="text-lg text-gray-300">It’s the tool we’re using to transform Africa today.</p>
+    </div>
+  </section>
+</div>
+
+
+
+ <!-- Footer -->
+<footer class="bg-black py-8 text-center text-gray-600 mt-auto">
+ 
+  <!-- Footer -->
+<footer class="bg-black py-8 text-center text-gray-600 mt-auto">
+
+  <!-- Social / Navigation Icons -->
+  <div class="flex justify-center gap-6 mb-4 text-xl">
+    <!-- About (info icon) -->
+    <a href="#about" class="hover:text-white transition" title="About SiAi">
+      <i class="fas fa-info-circle"></i>
+    </a>
+
+    <!-- Contact (scrolls to contact section) -->
+    <a href="#contact" class="hover:text-white transition" title="Contact">
+      <i class="fas fa-envelope"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/company/siai" target="_blank" class="hover:text-white transition" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+
+  <!-- Copyright -->
+  <p>© <script>document.write(new Date().getFullYear())</script> SiAi. All rights reserved.</p>
+
+</footer>
+
+
+  
+  <!-- AOS Animation -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // ✅ AOS Init
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out',
+    });
+
+    // ✅ Hero Text Animation
+    const video = document.getElementById('bgVideo');
+    const heroText = document.getElementById('heroText');
+    if (video && heroText) {
+      video.addEventListener('play', () => {
+        setTimeout(() => {
+          heroText.classList.add('show');
+        }, 300);
+      });
+    }
+
+    // ✅ Custom Cursor
+    const cursor = document.getElementById('custom-cursor');
+    if (cursor) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      });
+
+      const targets = document.querySelectorAll('.hover-target');
+      targets.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.style.opacity = '0.25';
+          cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.style.opacity = '0';
+          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+      });
+    }
+
+    // ✅ Typewriter Text
+    const text = "We're Building More Than Just AI.";
+    const typewriter = document.getElementById("csr-typewriter");
+    if (typewriter) {
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          typewriter.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, 70);
+        } else {
+          typewriter.classList.remove("border-r-4");
+        }
+      }
+      type();
+    }
+
+    // ✅ Particles.js
+    const particlesCanvas = document.getElementById("particles-canvas");
+    if (particlesCanvas) {
+      particlesJS("particles-canvas", {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 800 } },
+          color: { value: "#facc15" },
+          shape: { type: "circle" },
+          opacity: { value: 0.3, random: true },
+          size: { value: 2.5, random: true },
+          move: { enable: true, speed: 1, direction: "none" }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: { onhover: { enable: false } }
+        },
+        retina_detect: true
+      });
+    }
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+<script>
+  lottie.loadAnimation({
+    container: document.getElementById('puzzle-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '/static/lottie/puzzle.json'  
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"></script>
+
+<script>
+  VANTA.WAVES({
+    el: "#bgVanta",
+    color: 0x00000c,           
+    shininess: 30,             
+    waveHeight: 20,
+    waveSpeed: 0.7,
+    zoom: 0.9,
+    backgroundColor: 0x000000  
+  });
+</script>
+
+</body>
+</html>
