@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Hardware Devices | SiAi</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -10,97 +12,105 @@
 <body class="bg-black text-white font-sans">
 
   <!-- Header -->
-  <header class="p-6 flex justify-between items-center">
-    <a href="/" class="text-xl font-bold text-yellow-400">SiAi</a>
+  <header class="p-6 flex justify-between items-center absolute top-0 left-0 right-0 z-50">
+    <a href="/" class="text-xl font-bold text-white">SiAi</a>
     <nav class="space-x-4 text-sm">
       <a href="/" class="hover:underline">Home</a>
       <a href="#contact" class="hover:underline">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Text Block -->
-  <section class="text-center py-16 bg-gradient-to-r from-black via-gray-900 to-black">
-    <h1 class="text-4xl md:text-5xl font-semibold mb-4">AI Hardware & Devices</h1>
-    <p class="text-gray-400 text-lg max-w-2xl mx-auto">Explore cutting-edge AI-powered and traditional computing devices powering Africa's transformation.</p>
-  </section>
-
-  <!-- Magazine-style Highlight Section -->
-  <section class="py-16 px-6 md:px-24 bg-black text-center">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-yellow-300">The Rise of Intelligent Machines</h2>
-      <p class="text-gray-300 text-lg">From powerful GPUs that train language models to compact AI chips embedded in edge devices, Africa's tech revolution is being accelerated by hardware that was once reserved for global research labs. SiAi is making this accessible, local, and empowering.</p>
+  <!-- Fullscreen Hero Image -->
+  <section class="h-screen relative">
+    <img src="/static/images/hardware/1.jpg" alt="AI Hardware Hero" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      <h1 class="text-4xl md:text-6xl font-light text-white text-center">Empowering Africa with Intelligent Machines</h1>
     </div>
   </section>
 
-  <!-- Devices Grid -->
-  <section class="py-20 px-6 md:px-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-
-    <!-- AI Chipsets -->
-    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition shadow-lg">
-      <img src="/static/images/ai-hardware.jpg" alt="AI Chipset" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2 text-yellow-300">AI Chipsets</h3>
-        <p class="text-gray-300 text-sm">Optimized for deep learning, neural networks, and edge computing.</p>
+  <!-- Magazine-style Split Section -->
+  <section class="bg-[#0B1120] text-white py-20 px-6 md:px-24">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-4xl font-semibold mb-6">Explore the Future of Hardware with SiAi</h2>
+        <p class="text-lg mb-4">SiAi offers a wide range of AI hardware and essential computing gadgets for students, developers, and organizations. Whether you're building the next AI model or setting up a modern lab, we’ve got you covered.</p>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>AI Chipsets & NVIDIA GPUs</li>
+          <li>Smart Sensors & Robotics Kits</li>
+          <li>High-Speed Laptops & Wireless Keyboards</li>
+          <li>External SSD Drives & USB-C Hubs</li>
+          <li>Virtual Reality Glasses & Touchscreen Monitors</li>
+        </ul>
+      </div>
+      <div>
+        <img src="/static/images/hardware/2.jpg" alt="Tech Display" class="rounded-xl shadow-lg">
       </div>
     </div>
-
-    <!-- NVIDIA GPUs -->
-    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition shadow-lg">
-      <img src="/static/images/ai-hardware.jpg" alt="NVIDIA GPU" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2 text-yellow-300">NVIDIA GPUs</h3>
-        <p class="text-gray-300 text-sm">High-performance graphics cards built for AI model training and inference.</p>
-      </div>
-    </div>
-
-    <!-- Editorial-style Block -->
-    <div class="col-span-full bg-gray-900 rounded-xl p-10 shadow-md text-center">
-      <h3 class="text-2xl font-semibold text-yellow-300 mb-4">Why Hardware Matters</h3>
-      <p class="text-gray-400 max-w-2xl mx-auto">Behind every intelligent system is a foundation of silicon — chips, drives, sensors, and processors. At SiAi, we understand that building ethical AI starts with ethical access to powerful tools. That’s why we bring top-tier computing infrastructure to schools, startups, and researchers across the continent.</p>
-    </div>
-
-    <!-- High-Speed Laptops -->
-    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition shadow-lg">
-      <img src="/static/images/ai-hardware.jpg" alt="Laptop" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2 text-yellow-300">High-Speed Laptops</h3>
-        <p class="text-gray-300 text-sm">Portable computing power for developers and AI practitioners.</p>
-      </div>
-    </div>
-
-    <!-- SSD Drives -->
-    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition shadow-lg">
-      <img src="/static/images/ai-hardware.jpg" alt="SSD" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2 text-yellow-300">Solid State Drives (SSD)</h3>
-        <p class="text-gray-300 text-sm">Fast storage solutions for rapid data access and AI workloads.</p>
-      </div>
-    </div>
-
-    <!-- Smart Cameras -->
-    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition shadow-lg">
-      <img src="/static/images/ai-hardware.jpg" alt="Smart Camera" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2 text-yellow-300">Smart Cameras</h3>
-        <p class="text-gray-300 text-sm">AI-integrated cameras for surveillance, facial recognition, and IoT vision.</p>
-      </div>
-    </div>
-
-    <!-- AI Assistant Devices -->
-    <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition shadow-lg">
-      <img src="/static/images/ai-hardware.jpg" alt="AI Assistant Device" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2 text-yellow-300">AI Assistant Devices</h3>
-        <p class="text-gray-300 text-sm">Voice-enabled AI gadgets for automation and smart interfacing.</p>
-      </div>
-    </div>
-
   </section>
+
+  
+    <section class="bg-white py-20 px-6 md:px-24">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-semibold text-black">Featured Devices</h2>
+      </div>
+    
+      <!-- Swiper Container -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="/static/images/hardware/3.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" /></div>
+          <div class="swiper-slide"><img src="/static/images/hardware/4.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" /></div>
+          <div class="swiper-slide"><img src="/static/images/hardware/5.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" /></div>
+          <div class="swiper-slide"><img src="/static/images/hardware/6.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" /></div>
+          <div class="swiper-slide"><img src="/static/images/hardware/7.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" /></div>
+          <div class="swiper-slide"><img src="/static/images/hardware/8.jpg" class="w-full h-64 object-cover rounded-lg shadow-md" /></div>
+
+        </div>
+    
+        <!-- Optional Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    
 
   <!-- Footer -->
   <footer class="bg-black text-center text-gray-500 py-8">
     <p>&copy; <script>document.write(new Date().getFullYear())</script> SiAi. All rights reserved.</p>
   </footer>
+  
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    speed: 1000, // controls how fast it slides
+    autoplay: {
+      delay: 1,      // time between slides (set very low for continuous)
+      disableOnInteraction: false,
+    },
+    freeMode: {
+      enabled: true,
+      momentum: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      640: { slidesPerView: 1.5 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    }
+  });
+</script>
 
 </body>
 </html>
