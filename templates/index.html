@@ -41,8 +41,7 @@
       }
     
       .hover-target {
-        cursor: default !important; /* Force arrow cursor */
-        transition: transform 0.3s ease, filter 0.3s ease;
+          transition: transform 0.3s ease, filter 0.3s ease;
       }
       
     
@@ -50,6 +49,9 @@
         transform: scale(1.05);
         filter: brightness(1.2);
       }
+      a.hover-target {
+  cursor: pointer;
+}
       @keyframes fade-in {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -116,7 +118,10 @@
     }
   }
 
-      
+  a[class*="hover-target"] {
+  cursor: pointer !important;
+}
+
   </style>
 
 </head>
@@ -128,7 +133,10 @@
       Your browser does not support the video tag.
     </video>
 
-    
+     <!-- 🔹 Logo (Top-Left) -->
+     <div class="absolute top-6 left-6 z-20 text-white text-xl font-semibold">
+      SiAi
+    </div>
       <!-- 🔹 Horizontal Underlined Menu (Top-Right) -->
 <div class="absolute top-6 right-6 z-20 flex space-x-6 text-sm">
   <a href="#solutions" class="text-white underline hover:text-yellow-300 transition">Solutions</a>
@@ -424,7 +432,7 @@
 
   <!-- Copyright -->
   <p>© <script>document.write(new Date().getFullYear())</script> SiAi. All rights reserved.</p>
-
+  <p class="text-sm mt-1">A subsidiary of <a href="https://www.starinternational.co.zw" target="_blank" class="underline hover:text-white">Star International</a></p>
 </footer>
 
 
