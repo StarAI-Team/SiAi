@@ -383,6 +383,22 @@
   font-weight: 500;
   color: #222;
 }
+.hardware-prev,
+.hardware-next {
+  color: black;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 10;
+}
+
+.hardware-prev {
+  left: 0;
+}
+
+.hardware-next {
+  right: 0;
+}
 
       </style>
       
@@ -511,8 +527,9 @@
             </div>
             <p class="image-caption">Ergonomic Keyboard</p>
           </div>
-          
     </div>
+    <div class="swiper-button-prev hardware-prev"></div>
+    <div class="swiper-button-next hardware-next"></div> 
   </section>
   
      
@@ -542,7 +559,7 @@
       <div class="device-card">
         <div class="device-image">
           <img src="/static/images/hardware/11.jpg" alt="GPU Image">
-          <div class="device-tag">TOP SELLER</div>
+          <div class="device-tag">NEW ARRIVAL</div>
         </div>
   
         <div class="device-meta">
@@ -708,6 +725,27 @@
 });
 
 
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <script>
+    new Swiper('.image-row', {
+      wrapperClass: 'image-row',       
+      slideClass: 'image-card',        
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: false,
+      autoplay: false,
+      navigation: {
+        nextEl: '.hardware-next',
+        prevEl: '.hardware-prev',
+      },
+      breakpoints: {
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
   </script>
   
   
