@@ -8,8 +8,8 @@ app = Flask(__name__)
 TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
 
-T_WHATSAPP_FROM = 'whatsapp:+14155238886'  
-YOUR_WHATSAPP_TO = 'whatsapp:+263773344079'      
+TWILIO_WHATSAPP_FROM =  os.getenv('TWILIO_WHATSAPP_FROM') 
+YOUR_WHATSAPP_TO =  os.getenv('YOUR_WHATSAPP_TO')      
 
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
@@ -78,7 +78,7 @@ def contact():
         try:
             sent_message = client.messages.create(
                 body=msg,
-                from_=T_WHATSAPP_FROM,
+                from_=TWILIO_WHATSAPP_FROM,
                 to=YOUR_WHATSAPP_TO
             )
             print(f"✅ WhatsApp message sent: SID={sent_message.sid}")
