@@ -8,10 +8,10 @@ app = Flask(__name__)
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_ADDRESS = "emeldamada5@gmail.com"
+EMAIL_ADDRESS = "staraiinternational@gmail.com"
 EMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  
 
-TO_EMAIL = "emeldam@starinternational.co.zw"  
+TO_EMAIL = "staraiinternational@gmail.com"  
 
 
 @app.route('/')
@@ -63,6 +63,7 @@ Message: {message}
 
     return render_template('contact.html')
 
+#ROUTE FOR SENDING WHATSAPP
 # @app.route('/contact', methods=['GET', 'POST'])
 # def contact():
 #     if request.method == 'POST':
@@ -99,4 +100,4 @@ Message: {message}
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
 
-    #ntbc bort zcgm chuz
+
