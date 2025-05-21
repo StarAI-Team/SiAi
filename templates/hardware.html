@@ -404,12 +404,53 @@
 
 .full-width-banner img {
   width: 100%;
-  height: 200px;         
+  height: 800px;         
   object-fit: cover;     
   display: block;
   margin-bottom: 90px;
   border-radius: 20px;
 }
+
+  /* Make each slide taller and remove any default border radius */
+  .swiper-slide.apple-slide {
+    height: 650px;
+    border-radius: 0;
+    width: 500px;
+    overflow: hidden;
+  }
+
+  /* Ensure images fill the slide completely */
+  .swiper-slide.apple-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  /* Optional: Adjust overlay appearance */
+  .swiper-slide .slide-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .slide-overlay h3 {
+    color: white;
+    font-weight: 300;
+    font-size: 1.75rem;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .slide-overlay h3 {
+      font-size: 2rem;
+    }
+  }
+</style>
 
 
       </style>
@@ -734,80 +775,6 @@ Organic Photoconductor (OPC) Drum, typically yields 12,000–50,000 pages </div>
   </section>
   
 
-   <!-- 🔹 Non-AI Hardware Carousel -->
-   <section class="bg-white py-20 px-0 md:px-24">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-semibold text-black">AI In Action</h2>
-    </div>
-  
-    <div class="swiper nonAiSwiperApple mx-auto">
-      <div class="swiper-wrapper">
-  
-        <div class="swiper-slide apple-slide relative">
-          <img src="/static/images/hardware/26.png" alt="Monitor" class="w-full h-full object-cover" />
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center"
-          style="background-color: rgba(0, 0, 0, 0.6);">
-            <h3 class="text-2xl md:text-3xl text-white font-light px-4">Smart Farming</h3>
-          </div>
-        </div>
-  
-        <div class="swiper-slide apple-slide relative">
-          <img src="/static/images/hardware/27.png" alt="Touchscreen" class="w-full h-full object-cover" />
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center"
-          style="background-color: rgba(0, 0, 0, 0.6);">
-            <h3 class="text-2xl md:text-3xl text-white font-light px-4">AI powered Boards</h3>
-          </div>
-        </div>
-  
-        <div class="swiper-slide apple-slide relative">
-          <img src="/static/images/hardware/28.png" alt="Keyboard" class="w-full h-full object-cover" />
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center"        
-          style="background-color: rgba(0, 0, 0, 0.6);">
-
-            <h3 class="text-2xl md:text-3xl text-white font-light px-4">Smart Speakers</h3>
-          </div>
-        </div>
-        <div class="swiper-slide apple-slide relative">
-            <img src="/static/images/hardware/29.png" alt="Keyboard" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center"        
-            style="background-color: rgba(0, 0, 0, 0.6);">
-
-              <h3 class="text-2xl md:text-3xl text-white font-light px-4">Smart Cleaners </h3>
-            </div>
-          </div>
-          
-           <div class="swiper-slide apple-slide relative">
-            <img src="/static/images/hardware/32.png" alt="Keyboard" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center"        
-            style="background-color: rgba(0, 0, 0, 0.6);">
-
-              <h3 class="text-2xl md:text-3xl text-white font-light px-4">AI powered Analytics </h3>
-            </div>
-          </div>
-           <div class="swiper-slide apple-slide relative">
-            <img src="/static/images/hardware/31.png" alt="Keyboard" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center"        
-            style="background-color: rgba(0, 0, 0, 0.6);">
-
-              <h3 class="text-2xl md:text-3xl text-white font-light px-4">Smart Traffic Lights </h3>
-            </div>
-          </div>
-   <div class="swiper-slide apple-slide relative">
-            <img src="/static/images/hardware/30.png" alt="Keyboard" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center"        
-            style="background-color: rgba(0, 0, 0, 0.6);">
-
-              <h3 class="text-2xl md:text-3xl text-white font-light px-4">Food Delivery </h3>
-            </div>
-          </div>
-      </div>
-      
-  
-      <div class="swiper-button-next nonai-next text-black"></div>
-      <div class="swiper-button-prev nonai-prev text-black"></div>
-      <div class="swiper-pagination nonai-pagination mt-4"></div>
-    </div>
-  </section>
   
   <section class="ai-top-picks">
     <h2 class="ai-top-title">Top AI Hardware Devices</h2>
@@ -829,6 +796,86 @@ Organic Photoconductor (OPC) Drum, typically yields 12,000–50,000 pages </div>
   
     </div>
   </section>
+
+
+   <!-- 🔹 AI Hardware Carousel -->
+   <section class="bg-white py-20 px-0">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-semibold text-black">AI In Action</h2>
+    </div>
+  
+    <div class="swiper nonAiSwiperApple mx-0">
+      <div class="swiper-wrapper">
+  
+       <div class="swiper-slide apple-slide relative h-[5000px] w-[1200px]">
+        <img src="/static/images/hardware/26.png" alt="Monitor" class="w-full h-full object-cover" />
+  
+  <!-- ✅ Caption bar at the bottom -->
+  <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-10 py-6 px-4 flex justify-center items-center">
+  <h3 class="text-2xl md:text-4xl text-white font-semibold text-center">Smart Farming</h3>
+</div>
+
+</div>
+
+  
+        <div class="swiper-slide apple-slide relative">
+          <img src="/static/images/hardware/27.png" alt="Touchscreen" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-10 py-6 px-4 flex justify-center items-center">
+
+            <h3 class="text-2xl md:text-3xl text-white font-light px-4">AI powered Boards</h3>
+          </div>
+        </div>
+  
+        <div class="swiper-slide apple-slide relative">
+          <img src="/static/images/hardware/28.png" alt="Keyboard" class="w-full h-full object-cover" />
+           <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-10 py-6 px-4 flex justify-center items-center">
+
+
+            <h3 class="text-2xl md:text-3xl text-white font-light px-4">Smart Speakers</h3>
+          </div>
+        </div>
+        <div class="swiper-slide apple-slide relative">
+            <img src="/static/images/hardware/29.png" alt="Keyboard" class="w-full h-full object-cover" />
+             <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-10 py-6 px-4 flex justify-center items-center">
+
+
+              <h3 class="text-2xl md:text-3xl text-white font-light px-4">Smart Cleaners </h3>
+            </div>
+          </div>
+          
+           <div class="swiper-slide apple-slide relative">
+            <img src="/static/images/hardware/32.png" alt="Keyboard" class="w-full h-full object-cover" />
+              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-10 py-6 px-4 flex justify-center items-center">
+
+
+              <h3 class="text-2xl md:text-3xl text-white font-light px-4">AI powered Analytics </h3>
+            </div>
+          </div>
+           <div class="swiper-slide apple-slide relative">
+            <img src="/static/images/hardware/31.png" alt="Keyboard" class="w-full h-full object-cover" />
+              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-10 py-6 px-4 flex justify-center items-center">
+
+
+              <h3 class="text-2xl md:text-3xl text-white font-light px-4">Smart Traffic Lights </h3>
+            </div>
+          </div>
+   <div class="swiper-slide apple-slide relative">
+            <img src="/static/images/hardware/30.png" alt="Keyboard" class="w-full h-full object-cover" />
+              <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-10 py-6 px-4 flex justify-center items-center">
+
+
+              <h3 class="text-2xl md:text-3xl text-white font-light px-4">Food Delivery </h3>
+            </div>
+          </div>
+      </div>
+      
+  
+      <div class="swiper-button-next nonai-next text-black"></div>
+      <div class="swiper-button-prev nonai-prev text-black"></div>
+      <div class="swiper-pagination nonai-pagination mt-4"></div>
+    </div>
+  </section>
+  
   
   <!-- Footer -->
   <footer class="bg-black text-gray-600 text-center w-full">
