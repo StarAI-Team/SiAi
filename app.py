@@ -56,6 +56,7 @@ Message: {message}
                 server.starttls()
                 server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
                 server.sendmail(EMAIL_ADDRESS, TO_EMAIL, msg.as_string())
+                
             flash("✅ Thank you! Your message has been sent.", "success")
         except Exception as e:
             print(f"Email error: {e}")
