@@ -1,6 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+from twilio.rest import Client
+import os
 
 app = Flask(__name__)
+# Twilio credentials (use environment variables in production)
+TWILIO_ACCOUNT_SID = 'AC1c7009284781ef369e5928c07cdd1161'
+TWILIO_AUTH_TOKEN = '3b470210b17ca62e8f4ad81feabb5ebb'
+TWILIO_WHATSAPP_FROM = 'whatsapp:+14155238886'  # Twilio sandbox number
+YOUR_WHATSAPP_TO = 'whatsapp:+263773344079'      # Your actual WhatsApp number
+
+client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 @app.route('/')
 def home():
@@ -14,10 +23,69 @@ def hardware():
 def coming_soon():
     return render_template('soon.html')
 
-@app.route('/contact')
+# @app.route('/contact')
+# def contact():
+#     return render_template('contact.html')
+
+
+
+# @app.route('/contact', methods=['POST'])
+# def handle_contact_form():
+#     data = request.form
+
+#     name = data.get('name')
+#     email = data.get('email')
+#     phone = data.get('phone')
+#     country = data.get('country')
+#     message = data.get('message')
+
+#     # Format WhatsApp message
+#     msg = f"📩 *New Contact Form Submission (SiAi)*\n\n" \
+#           f"👤 Name: {name}\n📧 Email: {email}\n📱 Phone: {phone}\n" \
+#           f"🌍 Country: {country}\n📝 Message: {message}"
+
+#     # Send WhatsApp message via Twilio
+#     try:
+#         client.messages.create(
+#             body=msg,
+#             from_=TWILIO_WHATSAPP_FROM,
+#             to=YOUR_WHATSAPP_TO
+#         )
+#         return jsonify({'status': 'success'}), 200
+#     except Exception as e:
+#         return jsonify({'status': 'error', 'message': str(e)}), 500
+    
+
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    if request.method == 'POST':
+        data = request.form
+
+        name = data.get('name')
+        email = data.get('email')
+        phone = data.get('phone')
+        country = data.get('country')
+        message = data.get('message')
+
+        print(f"Received contact form submission: Name={name}, Email={email}, Phone={phone}, Country={country}, Message={message}")
+
+        msg = f"📩 *New Contact Form Submission (SiAi)*\n\n" \
+              f"👤 Name: {name}\n📧 Email: {email}\n📱 Phone: {phone}\n" \
+              f"🌍 Country: {country}\n📝 Message: {message}"
+
+        try:
+            sent_message = client.messages.create(
+                body=msg,
+                from_=TWILIO_WHATSAPP_FROM,
+                to=YOUR_WHATSAPP_TO
+            )
+            print(f"✅ WhatsApp message sent: SID={sent_message.sid}")
+            return jsonify({'status': 'success'}), 200
+        except Exception as e:
+            print(f"❌ Error sending WhatsApp message: {e}")
+            return jsonify({'status': 'error', 'message': str(e)}), 500
+
+    # GET request — show contact form
     return render_template('contact.html')
-
-
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
