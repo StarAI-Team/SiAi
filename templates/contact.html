@@ -68,6 +68,18 @@
           <a href="mailto:contact@siai.africa" class="underline text-[#3F4F40]">contact@siai.africa</a>.
         </p>
       </div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="mb-6">
+      {% for category, message in messages %}
+        <div class="p-4 rounded text-white {{ 'bg-green-600' if category == 'success' else 'bg-red-600' }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
 
       <!-- Right: Form -->
       

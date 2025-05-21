@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for, redirect
 import smtplib
 from email.mime.text import MIMEText
 import os
@@ -56,12 +56,17 @@ Message: {message}
                 server.starttls()
                 server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
                 server.sendmail(EMAIL_ADDRESS, TO_EMAIL, msg.as_string())
-            return jsonify({'status': 'sent'}), 200
+            return redirect(url_for('contact', success=1))
+
         except Exception as e:
             print(f"Email error: {e}")
-            return jsonify({'status': 'error', 'message': str(e)}), 500
+            return render_template('contact.html', success=0, error=str(e))
 
-    return render_template('contact.html')
+     # Render form page (check for ?success=1)
+    success = request.args.get('success')
+    return render_template('contact.html', success=success)
+
+
 
 #ROUTE FOR SENDING WHATSAPP
 # @app.route('/contact', methods=['GET', 'POST'])

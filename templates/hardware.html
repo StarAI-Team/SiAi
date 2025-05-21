@@ -919,6 +919,25 @@ Organic Photoconductor (OPC) Drum, typically yields 12,000–50,000 pages </div>
     easing: 'ease-in-out',
   });
 </script>
+<!-- Toast Notification -->
+<div id="toast" class="fixed bottom-6 right-6 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 transition-opacity duration-500 z-50">
+  ✅ Your message has been sent successfully!
+</div>
+
+{% if success == '1' %}
+<script>
+  const toast = document.getElementById('toast');
+  toast.classList.remove('opacity-0');
+  toast.classList.add('opacity-100');
+
+  setTimeout(() => {
+    toast.classList.remove('opacity-100');
+    toast.classList.add('opacity-0');
+  }, 4000);
+</script>
+{% endif %}
+
+
 
 </body>
 </html>
