@@ -1,17 +1,15 @@
 from flask import Flask, render_template, request, jsonify
 from twilio.rest import Client
 import os
-from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-load_dotenv() 
 # Twilio credentials (use environment variables in production)
 TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
 
-TWILIO_WHATSAPP_FROM = 'whatsapp:+14155238886'  # Twilio sandbox number
-YOUR_WHATSAPP_TO = 'whatsapp:+263773344079'      # Your actual WhatsApp number
+T_WHATSAPP_FROM = 'whatsapp:+14155238886'  
+YOUR_WHATSAPP_TO = 'whatsapp:+263773344079'      
 
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
@@ -80,7 +78,7 @@ def contact():
         try:
             sent_message = client.messages.create(
                 body=msg,
-                from_=TWILIO_WHATSAPP_FROM,
+                from_=T_WHATSAPP_FROM,
                 to=YOUR_WHATSAPP_TO
             )
             print(f"✅ WhatsApp message sent: SID={sent_message.sid}")
