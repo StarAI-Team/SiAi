@@ -1,11 +1,15 @@
 from flask import Flask, render_template, request, jsonify
 from twilio.rest import Client
 import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+
+load_dotenv() 
 # Twilio credentials (use environment variables in production)
-TWILIO_ACCOUNT_SID = 'AC1c7009284781ef369e5928c07cdd1161'
-TWILIO_AUTH_TOKEN = '3b470210b17ca62e8f4ad81feabb5ebb'
+TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
+
 TWILIO_WHATSAPP_FROM = 'whatsapp:+14155238886'  # Twilio sandbox number
 YOUR_WHATSAPP_TO = 'whatsapp:+263773344079'      # Your actual WhatsApp number
 
