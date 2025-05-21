@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – SiAi | Empowering Africa with Ethical AI</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#F2E6D8] text-gray-800">
+
+  <!-- Top Nav -->
+  <header class="px-6 md:px-24 py-6 flex justify-between items-center" data-aos="fade-down">
+    <a href="/" class="text-2xl font-bold text-[#3F4F40] tracking-wide">SiAi</a>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="min-h-screen py-20 px-6 md:px-24 mt-8">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+
+      <!-- Left: Info -->
+      <div data-aos="fade-right" data-aos-delay="100">
+        <h2 class="text-5xl font-semibold leading-tight mb-10 text-[#3F4F40]">
+          GET IN TOUCH<br>WITH SIAI
+        </h2>
+
+        <h3 class="text-2xl font-medium mb-4 text-[#3F4F40]">
+          Curious about ethical AI or how SiAi can help?
+        </h3>
+
+        <p class="mb-4 text-lg">
+          Whether you're exploring AI opportunities, looking to partner —
+        </p>
+        <p class="mb-4 text-lg">
+          or just learning about our mission — we’d love to hear from you.
+        </p>
+
+        <p class="text-md mb-1">
+          For collaborations, press, or general questions,
+        </p>
+        <p class="text-md">
+          leave a message using the form or reach us directly at
+          <a href="mailto:contact@siai.africa" class="underline text-[#3F4F40]">contact@siai.africa</a>.
+        </p>
+      </div>
+
+      <!-- Right: Form -->
+      <form class="space-y-6 w-full max-w-xl" data-aos="fade-up" data-aos-delay="200">
+        <div>
+          <label class="block text-sm font-medium mb-1" for="name">Name <span class="text-red-500">*</span></label>
+          <input type="text" id="name" class="w-full border-b border-gray-400 bg-transparent outline-none py-2" required>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="email">Email <span class="text-red-500">*</span></label>
+          <input type="email" id="email" class="w-full border-b border-gray-400 bg-transparent outline-none py-2" required>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="phone">Phone</label>
+          <input type="tel" id="phone" class="w-full border-b border-gray-400 bg-transparent outline-none py-2">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="country">Country of Residence</label>
+          <select id="country" class="w-full border-b border-gray-400 bg-transparent outline-none py-2">
+            <option>Zimbabwe</option>
+            <option>South Africa</option>
+            <option>Kenya</option>
+            <option>Nigeria</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1" for="message">Message <span class="text-red-500">*</span></label>
+          <textarea id="message" rows="4" class="w-full border-b border-gray-400 bg-transparent outline-none py-2" required></textarea>
+        </div>
+
+        <div>
+          <button type="submit" class="border border-gray-600 px-6 py-2 text-sm tracking-wide hover:bg-gray-100 transition">
+            SEND MESSAGE
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-in-out'
+    });
+  </script>
+
+</body>
+</html>
