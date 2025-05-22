@@ -7,7 +7,7 @@ from flask_minify import minify
 
 app = Flask(__name__)
 app.secret_key = 'su467pe52rsec58654532ret452k562ey'
-minify(app=app, html=True, js=True, cssless=True)
+minify(app=app, html=True, js=True, cssless=True, bypass=['image/', 'video/', 'application/octet-stream'])
 
 Compress(app)
 
