@@ -8,6 +8,8 @@ flask = "*"
 gunicorn = "*"
 twilio = "*"
 python-dotenv = "*"
+flask-compress = "*"
+flask-minify = "*"
 
 [dev-packages]
 

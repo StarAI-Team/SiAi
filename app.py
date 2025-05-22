@@ -2,9 +2,14 @@ from flask import Flask, render_template, request, jsonify, url_for, flash, redi
 import smtplib
 from email.mime.text import MIMEText
 import os
+from flask_compress import Compress
+from flask_minify import minify
 
 app = Flask(__name__)
 app.secret_key = 'su467pe52rsec58654532ret452k562ey'
+minify(app=app, html=True, js=True, cssless=True)
+
+Compress(app)
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
@@ -100,7 +105,14 @@ Message: {message}
 #     return render_template('contact.html')
 
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+@app.after_request
+def add_cache_headers(response):
+    if 'Cache-Control' not in response.headers and request.path.startswith('/static/'):
+        response.headers['Cache-Control'] = 'public, max-age=31536000'
+    return response
+
+
+# if __name__ == '__main__':
+#     app.run(debug=True, port=5000)
 
 
