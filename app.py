@@ -103,12 +103,17 @@ Message: {message}
 
 #     # GET request — show contact form
 #     return render_template('contact.html')
-
-
 @app.after_request
-def add_cache_headers(response):
+def final_after_request_handler(response):
+    # 🔁 Add cache headers for static files
     if 'Cache-Control' not in response.headers and request.path.startswith('/static/'):
         response.headers['Cache-Control'] = 'public, max-age=31536000'
+
+    # 🚫 Skip minify on binary content
+    content_type = response.headers.get('Content-Type', '')
+    if any(binary in content_type for binary in ['image/', 'video/', 'audio/', 'application/octet-stream']):
+        response.direct_passthrough = True
+
     return response
 
 
