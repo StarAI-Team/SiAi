@@ -3,9 +3,11 @@ import smtplib
 from email.mime.text import MIMEText
 import os
 from flask_compress import Compress
+from flask_minify import minify
 
 app = Flask(__name__)
 app.secret_key = 'su467pe52rsec58654532ret452k562ey'
+minify(app=app, html=True, js=True, cssless=True, bypass=['image/', 'video/', 'application/octet-stream'])
 
 Compress(app)
 
@@ -69,16 +71,53 @@ Message: {message}
 
     return render_template('contact.html')
 
+#ROUTE FOR SENDING WHATSAPP
+# @app.route('/contact', methods=['GET', 'POST'])
+# def contact():
+#     if request.method == 'POST':
+#         data = request.form
 
+#         name = data.get('name')
+#         email = data.get('email')
+#         phone = data.get('phone')
+#         country = data.get('country')
+#         message = data.get('message')
+
+#         print(f"Received contact form submission: Name={name}, Email={email}, Phone={phone}, Country={country}, Message={message}")
+
+#         msg = f"📩 *New Contact Form Submission (SiAi)*\n\n" \
+#               f"👤 Name: {name}\n📧 Email: {email}\n📱 Phone: {phone}\n" \
+#               f"🌍 Country: {country}\n📝 Message: {message}"
+
+#         try:
+#             sent_message = client.messages.create(
+#                 body=msg,
+#                 from_=TWILIO_WHATSAPP_FROM,
+#                 to=YOUR_WHATSAPP_TO
+#             )
+#             print(f"✅ WhatsApp message sent: SID={sent_message.sid}")
+#             return jsonify({'status': 'success'}), 200
+#         except Exception as e:
+#             print(f"❌ Error sending WhatsApp message: {e}")
+#             return jsonify({'status': 'error', 'message': str(e)}), 500
+
+#     # GET request — show contact form
+#     return render_template('contact.html')
 @app.after_request
-def add_cache_headers(response):
+def final_after_request_handler(response):
+    # 🔁 Add cache headers for static files
     if 'Cache-Control' not in response.headers and request.path.startswith('/static/'):
         response.headers['Cache-Control'] = 'public, max-age=31536000'
+
+    # 🚫 Skip minify on binary content
+    content_type = response.headers.get('Content-Type', '')
+    if any(binary in content_type for binary in ['image/', 'video/', 'audio/', 'application/octet-stream']):
+        response.direct_passthrough = True
+
     return response
 
 
-
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+# if __name__ == '__main__':
+#     app.run(debug=True, port=5000)
 
 
