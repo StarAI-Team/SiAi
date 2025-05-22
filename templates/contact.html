@@ -49,9 +49,22 @@
   <!-- Hero Section -->
   <section class="h-screen relative">
     <img src="/static/images/contact.jpg" alt="AI Hardware Hero" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <h1 class="text-4xl md:text-6xl font-light text-white text-center">Request A Demo</h1>
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+  <div class="flex flex-col items-start pl-6">
+    <h1 class="text-4xl md:text-6xl font-light text-white mb-8">
+      GET IN TOUCH WITH SIAI
+    </h1>
+
+    <!-- Arrow centered + bouncing -->
+    <div class="self-center animate-bounce">
+      <a href="#contact-form" class="text-white text-4xl">
+        ↓
+      </a>
     </div>
+  </div>
+</div>
+
+
   </section>
 <header class="p-6 flex justify-between items-center absolute top-0 left-0 right-0 z-50">
     <a href="/" class="text-xl font-bold text-white">SiAi</a>
@@ -59,14 +72,15 @@
       <a href="/" class="hover:underline">Home</a>
     </nav>
     </header>
+
   <!-- Contact Section -->
-  <section class="min-h-screen py-20 px-6 md:px-24 mt-8">
+  <section id="contact-form" class="min-h-screen py-20 px-6 md:px-24 mt-8">
     <div class="grid md:grid-cols-2 gap-12 items-start">
 
       <!-- Left: Info -->
       <div data-aos="fade-right" data-aos-delay="100">
         <h2 class="text-5xl font-semibold leading-tight mb-10 text-[#3F4F40]">
-          GET IN TOUCH<br>WITH SIAI
+          Request A Demo
         </h2>
 
         <h3 class="text-2xl font-medium mb-4 text-[#3F4F40]">
