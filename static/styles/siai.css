@@ -8,7 +8,9 @@
   left: 0;
   z-index: 0;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 
 .hero-image {
   position: absolute;
