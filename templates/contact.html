@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact – SiAi | Empowering Africa with Ethical AI</title>
+  <title>Contact – SiAi | Empowering Africa with AI</title>
 
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -17,11 +17,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/static/favicon.png">
 
-  <style>
+  <!-- <style>
     body {
       font-family: 'Inter', sans-serif;
     }
-  </style>
+  </style> -->
 </head>
 <body class="bg-[#F2E6D8] text-gray-800">
  {% with messages = get_flashed_messages(with_categories=true) %}
@@ -51,9 +51,9 @@
     <img src="/static/images/contact.jpg" alt="AI Hardware Hero" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
   <div class="flex flex-col items-start pl-6">
-    <h1 class="text-4xl md:text-6xl font-light text-white mb-8">
-      GET IN TOUCH WITH SIAI
-    </h1>
+    <h1 class="text-4xl md:text-6xl font-light text-white text-center">
+  Get in touch with SiAi
+</h1>
 
     <!-- Arrow centered + bouncing -->
     <div class="self-center animate-bounce">
@@ -69,6 +69,9 @@
 <header class="p-6 flex justify-between items-center absolute top-0 left-0 right-0 z-50">
     <a href="/" class="text-xl font-bold text-white">SiAi</a>
     <nav class="space-x-4 text-sm text-white">
+      
+       <a href="/hardware" class="hover:underline">Hardware</a>
+      <a href="/contact" class="hover:underline">Contact</a>
       <a href="/" class="hover:underline">Home</a>
     </nav>
     </header>
@@ -181,6 +184,21 @@
 
   // Auto-dismiss after 5 seconds
   setTimeout(() => dismissFlash(), 5000);
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash
+    const navLinks = document.querySelectorAll('nav a');
+
+    navLinks.forEach(link => {
+      const linkPath = link.getAttribute('href').replace(/\/$/, "");
+      if (linkPath === currentPath) {
+        link.classList.add('text-blue-400', 'font-bold');
+        link.classList.remove('text-white');
+      }
+    });
+  });
 </script>
 
 </body>

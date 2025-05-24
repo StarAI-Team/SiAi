@@ -23,7 +23,7 @@
         media="print"
         onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></noscript>
-
+ <link rel="stylesheet"  href="/static/styles/siai.css" />
   <!-- 🔹 AOS CSS (non-blocking) -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
@@ -37,147 +37,49 @@
         media="print"
         onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
-  <style>
-    video.bg-video {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-    .fade-up {
-        opacity: 0;
-        transform: translateY(40px);
-    transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
-      }
-    
-      .fade-up.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      #custom-cursor {
-        transition: transform 0.2s ease, opacity 0.2s ease;
-        mix-blend-mode: screen;
-        z-index: 9999;
-        pointer-events: none;
-        opacity: 0; /* Start invisible */
-      }
-    
-      .hover-target {
-          transition: transform 0.3s ease, filter 0.3s ease;
-      }
-      
-    
-      .hover-target:hover {
-        transform: scale(1.05);
-        filter: brightness(1.2);
-      }
-      a.hover-target {
-  cursor: pointer;
-}
-      @keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in {
-  animation: fade-in 1.5s ease forwards;
-}
-
-     /* 🔸 Glow Text */
-  @keyframes intense-glow {
-    0%, 100% {
-    text-shadow: none; /
-  }
-  50% {
-    text-shadow:
-      0 0 12px #fde047,
-      0 0 24px #facc15,
-      0 0 36px #f59e0b,
-      0 0 48px #f59e0b; 
-  }
-}
-  .fade-in-sub {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1.8s ease 1s forwards;
-  }
-  @keyframes fadeUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-
-  .glow-text {
-  animation: intense-glow 3.5s ease-in-out infinite;
-  color: #facc15; 
-}
-
-  .animated-bg {
-    background: linear-gradient(135deg, #100026, #000d2f, #000000, #2a275c);
-    background-size: 300% 300%;
-    animation: gradientShift 8s ease-in-out infinite;
-  }
-
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  @keyframes float-slow {
-  0%   { transform: translateY(0) rotate(0deg); }
-  50%  { transform: translateY(-15px) rotate(3deg); }
-  100% { transform: translateY(0) rotate(0deg); }
-}
-
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite;
-}
-  @media (min-width: 768px) {
-    .government-card {
-      grid-row: span 2; /* spans 2 rows to make it visually taller */
-      height: 34rem;
-    }
-  }
-
-  a[class*="hover-target"] {
-  cursor: pointer !important;
-}
-
-  </style>
+ 
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
 </head>
 <body class="bg-black text-white font-sans">
   <!-- Hero Section -->
   <section class="h-screen relative flex items-center justify-center text-center">
-    <video autoplay loop muted playsinline id="bgVideo" class="bg-video" preload="none" poster="/static/poster.png">
+    <!-- <video autoplay loop muted playsinline id="bgVideo" class="bg-video" preload="none" poster="/static/poster.png">
       <source src="/static/intro.webm" type="video/webm">
       <source src="/static/intro.mp4" type="video/mp4">
       Your browser does not support the video tag.
-    </video>
+    </video> -->
+    <img src="/static/images/siai.png" class="hero-image" alt="Hero Image"
+       data-aos="fade-in"
+       data-aos-duration="1500" />
+
+
 
      <!-- 🔹 Logo (Top-Left) -->
-     <div class="absolute top-6 left-6 z-20 text-white text-xl font-semibold">
+     <div class="absolute top-6 left-6 z-40 text-white text-xl font-semibold">
       SiAi
     </div>
       <!-- 🔹 Horizontal Underlined Menu (Top-Right) -->
-<div class="absolute top-6 right-6 z-20 flex space-x-6 text-sm">
-  <a href="#solutions" class="text-white underline hover:text-yellow-300 transition">Solutions</a>
+<div class="absolute top-6 right-6 z-40 flex space-x-6 text-sm">
+<a href="/hardware" class="text-yellow-400 font-bold underline hover:text-yellow-300 transition">Hardware</a>
+
   <a href="/contact" class="text-white underline hover:text-yellow-300 transition">Contact</a>
   <a href="#about" class="text-white underline hover:text-yellow-300 transition">About</a>
 </div>
 
 
     <!-- Hero Text -->
-    <div id="heroText" class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center z-10 fade-up">
-      <h1 class="text-5xl md:text-6xl font-light mb-4">Empowering Africa with Ethical AI</h1>
+<div id="heroText" class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center z-30 fade-up">
+      <h1 class="text-5xl md:text-6xl font-light mb-4">Empowering Africa with AI</h1>
       <p class="max-w-xl text-lg mb-6">At SiAi, we harmonize humans and machines for a thriving Africa.</p>
       <a href="#solutions" class="bg-white text-black px-6 py-3 font-medium rounded-full hover:bg-gray-300 transition">Discover Our Solutions</a>
     </div>
+    <!-- <div id="heroText" class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center z-30 fade-up">
+  <h1 class="text-5xl md:text-6xl font-light mb-4 text-white">Empowering Africa with AI</h1>
+  <p class="max-w-xl text-lg mb-6 text-white">At SiAi, we harmonize humans and machines for a thriving Africa.</p>
+  <a href="#solutions" class="bg-white text-black px-6 py-3 font-medium rounded-full hover:bg-gray-300 transition">Discover Our Solutions</a>
+</div> -->
+
   </section>
 
 
@@ -278,12 +180,12 @@
     <h2 class="text-4xl text-center mb-12">AI Solutions Overview</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      <a href="/hardware" class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500 block" style="background-image: url('/static/images/ai-hardware.jpg'); background-size: cover; background-position: center;" data-aos="fade-right">
+      <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500 block" style="background-image: url('/static/images/ai-hardware.jpg'); background-size: cover; background-position: center;" data-aos="fade-right">
         <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-40 transition duration-300"></div>
         <div class="absolute inset-0 flex items-center justify-center text-center px-4">
           <h3 class="text-xl font-semibold text-white">AI Hardware (Computer Hardware)</h3>
         </div>
-      </a>
+      </div>
       
 
       <div class="hover-target relative h-64 rounded-xl overflow-hidden group transform transition duration-500 block" style="background-image: url('/static/images/drones.jpg'); background-size: cover; background-position: center;" data-aos="fade-left" data-aos-delay="100">
@@ -430,126 +332,132 @@
   <p class="text-sm mt-1">A subsidiary of <a href="https://www.starinternational.co.zw" target="_blank" class="underline hover:text-white">Star International</a></p>
 </footer>
 
-
-  
-  <!-- AOS Animation -->
+<!-- AOS Animation -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
 <!-- Particles.js -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // ✅ AOS Init
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: 'ease-in-out',
+document.addEventListener("DOMContentLoaded", function () {
+  // ✅ AOS Init
+  AOS.init({
+    duration: 1000,
+    once: true,
+    easing: 'ease-in-out',
+  });
+
+  // Show hero text immediately because there is no video
+  const heroText = document.getElementById('heroText');
+  if (heroText) {
+    heroText.classList.add('show');
+  }
+
+  // ✅ Custom Cursor
+  const cursor = document.getElementById('custom-cursor');
+  if (cursor) {
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
     });
 
-    // ✅ Hero Text Animation
-    const video = document.getElementById('bgVideo');
-    const heroText = document.getElementById('heroText');
-    if (video && heroText) {
-      video.addEventListener('play', () => {
-        setTimeout(() => {
-          heroText.classList.add('show');
-        }, 300);
+    const targets = document.querySelectorAll('a, button, .hover-target, [onclick]');
+    targets.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '0.25';
+        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
       });
-    }
-
-    // ✅ Custom Cursor
-    const cursor = document.getElementById('custom-cursor');
-if (cursor) {
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-  });
-
-  const targets = document.querySelectorAll('a, button, .hover-target, [onclick]');
-  targets.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.opacity = '0.25';
-      cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+      el.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
     });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.opacity = '0';
-      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-    });
-  });
-}
+  }
 
-
-    // ✅ Typewriter Text
-    const text = "We're Building More Than Just AI.";
-    const typewriter = document.getElementById("csr-typewriter");
-    if (typewriter) {
-      let i = 0;
-      function type() {
-        if (i < text.length) {
-          typewriter.textContent += text.charAt(i);
-          i++;
-          setTimeout(type, 70);
-        } else {
-          typewriter.classList.remove("border-r-4");
-        }
+  // ✅ Typewriter Text
+  const text = "We're Building More Than Just AI.";
+  const typewriter = document.getElementById("csr-typewriter");
+  if (typewriter) {
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        typewriter.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 70);
+      } else {
+        typewriter.classList.remove("border-r-4");
       }
-      type();
     }
+    type();
+  }
 
-    // ✅ Particles.js
-    const particlesCanvas = document.getElementById("particles-canvas");
-    if (particlesCanvas) {
-      particlesJS("particles-canvas", {
-        particles: {
-          number: { value: 50, density: { enable: true, value_area: 800 } },
-          color: { value: "#facc15" },
-          shape: { type: "circle" },
-          opacity: { value: 0.3, random: true },
-          size: { value: 2.5, random: true },
-          move: { enable: true, speed: 1, direction: "none" }
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: { onhover: { enable: false } }
-        },
-        retina_detect: true
-      });
-    }
-  });
+  // ✅ Particles.js
+  const particlesCanvas = document.getElementById("particles-canvas");
+  if (particlesCanvas) {
+    particlesJS("particles-canvas", {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },
+        color: { value: "#facc15" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3, random: true },
+        size: { value: 2.5, random: true },
+        move: { enable: true, speed: 1, direction: "none" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: false } }
+      },
+      retina_detect: true
+    });
+  }
+});
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js" defer></script>
 
 <script>
-  window.addEventListener('load', () => {
-    if (window.VANTA && window.VANTA.WAVES) {
-      VANTA.WAVES({
-        el: "#bgVanta",
-        color: 0x00000c,
-        shininess: 30,
-        waveHeight: 20,
-        waveSpeed: 0.7,
-        zoom: 0.9,
-        backgroundColor: 0x000000
-      });
-    }
-  });
+window.addEventListener('load', () => {
+  if (window.VANTA && window.VANTA.WAVES) {
+    VANTA.WAVES({
+      el: "#bgVanta",
+      color: 0x00000c,
+      shininess: 30,
+      waveHeight: 20,
+      waveSpeed: 0.7,
+      zoom: 0.9,
+      backgroundColor: 0x000000
+    });
+  }
+});
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('menuDropdown');
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('menuDropdown');
 
-    if (toggle && menu) {
-      toggle.addEventListener('click', function () {
-        menu.classList.toggle('hidden');
-      });
-    }
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      menu.classList.toggle('hidden');
+    });
+  }
+});
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll('div.absolute.top-6.right-6 a');
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('text-yellow-400', 'font-bold');
+        link.classList.remove('text-white');
+      }
+    });
   });
 </script>
+
 
 </body>
 </html>
