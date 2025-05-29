@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, flash, redirect, send_from_directory, make_response
+from flask import Flask, render_template, request, url_for, flash, redirect
 import smtplib
 from email.mime.text import MIMEText
 import os
@@ -15,13 +15,6 @@ EMAIL_ADDRESS = "staraiinternational@gmail.com"
 EMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  
 
 TO_EMAIL = "staraiinternational@gmail.com"  
-
-@app.route('/static/<path:filename>')
-def static_files(filename):
-    response = make_response(send_from_directory('static', filename))
-    # Cache for 30 days (2592000 seconds) and mark as immutable
-    response.headers['Cache-Control'] = 'public, max-age=2592000, immutable'
-    return response
 
 
 @app.route('/')
