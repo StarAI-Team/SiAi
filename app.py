@@ -10,14 +10,9 @@ from flask_talisman import Talisman
 
 app = Flask(__name__)
 app.secret_key = os.getenv('FLASK_SECRET_KEY')
-app.config.update(
-    SESSION_COOKIE_SECURE=True,    
-    SESSION_COOKIE_HTTPONLY=True,  
-    SESSION_COOKIE_SAMESITE='Lax' 
-)
+
 
 limiter = Limiter(app=app, key_func=get_remote_address)
-Talisman(app)
 Compress(app)
 csrf = CSRFProtect(app)
 
@@ -34,6 +29,39 @@ TO_EMAIL = "staraiinternational@gmail.com"
 #     # Cache for 30 days (2592000 seconds) and mark as immutable
 #     response.headers['Cache-Control'] = 'public, max-age=2592000, immutable'
 #     return response
+
+csp = {
+    'default-src': [
+        '\'self\'',
+    ],
+    'style-src': [
+        '\'self\'',
+        'https://cdn.jsdelivr.net',         # Tailwind CSS, AOS CSS from jsdelivr
+        'https://cdnjs.cloudflare.com',    # Font Awesome CSS from cdnjs
+        '\'unsafe-inline\'',                # Because your styles use inline styles (optional but needed here)
+        'https://fonts.googleapis.com'     # If you ever add Google Fonts CSS
+    ],
+    'script-src': [
+        '\'self\'',
+        'https://cdn.jsdelivr.net',         # AOS JS, Vanta.js, Three.js from jsdelivr
+        'https://cdnjs.cloudflare.com',    # Any scripts from cdnjs
+        '\'unsafe-inline\'',                # For inline scripts (like your event listeners)
+        '\'unsafe-eval\''                   # Required by some JS libs like Three.js (if needed)
+    ],
+    'font-src': [
+        '\'self\'',
+        'https://cdnjs.cloudflare.com',    # Font Awesome fonts
+        'https://fonts.gstatic.com'        # Google Fonts font files
+    ],
+    'img-src': [
+        '\'self\'',
+        'data:',                           # For inline images if any
+    ],
+    'connect-src': [
+        '\'self\'',
+    ],
+}
+Talisman(app, content_security_policy=csp)
 
 
 @app.route('/')
