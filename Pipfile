@@ -12,6 +12,7 @@ flask-compress = "*"
 flask-minify = "*"
 flask-wtf = "*"
 flask-limiter = "*"
+flask-talisman = "*"
 
 [dev-packages]
 
