@@ -38,19 +38,22 @@ csp = {
         'https://cdn.jsdelivr.net',         
         'https://cdnjs.cloudflare.com',    
         '\'unsafe-inline\'',                
-        'https://fonts.googleapis.com'    
+        'https://fonts.googleapis.com',
+        'https://unpkg.com'    
     ],
     'script-src': [
         '\'self\'',
         'https://cdn.jsdelivr.net',         
         'https://cdnjs.cloudflare.com',    
         '\'unsafe-inline\'',                
-        '\'unsafe-eval\''                   
+        '\'unsafe-eval\'',
+        'https://unpkg.com'                  
     ],
     'font-src': [
         '\'self\'',
         'https://cdnjs.cloudflare.com',    
-        'https://fonts.gstatic.com'        
+        'https://fonts.gstatic.com',
+        'data:'        
     ],
     'img-src': [
         '\'self\'',
