@@ -10,8 +10,9 @@ from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
 app.secret_key = os.getenv('FLASK_SECRET_KEY')
-limiter = Limiter(app, key_func=get_remote_address)
-limiter.init_app(app)
+
+limiter = Limiter(app=app, key_func=get_remote_address)
+
 
 Compress(app)
 csrf = CSRFProtect(app)
