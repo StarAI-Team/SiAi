@@ -1,20 +1,33 @@
-from flask import Flask, render_template, request, url_for, flash, redirect
+from flask import Flask, render_template, request, url_for, flash, redirect, send_from_directory, make_response
 import smtplib
 from email.mime.text import MIMEText
 import os
 from flask_compress import Compress
+from flask_wtf import CSRFProtect
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
 
 app = Flask(__name__)
-app.secret_key = 'su467pe52rsec58654532ret452k562ey'
+app.secret_key = os.getenv('FLASK_SECRET_KEY')
+limiter = Limiter(app, key_func=get_remote_address)
 
 Compress(app)
+csrf = CSRFProtect(app)
 
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_ADDRESS = "staraiinternational@gmail.com"
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  
 
 TO_EMAIL = "staraiinternational@gmail.com"  
+
+# @app.route('/static/<path:filename>')
+# def static_files(filename):
+#     response = make_response(send_from_directory('static', filename))
+#     # Cache for 30 days (2592000 seconds) and mark as immutable
+#     response.headers['Cache-Control'] = 'public, max-age=2592000, immutable'
+#     return response
 
 
 @app.route('/')
@@ -31,6 +44,7 @@ def coming_soon():
 
 
 @app.route('/contact', methods=['GET', 'POST'])
+@limiter.limit("5 per hour")
 def contact():
     if request.method == 'POST':
         data = request.form
