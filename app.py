@@ -18,11 +18,6 @@ limiter = Limiter(app=app, key_func=get_remote_address)
 Compress(app)
 csrf = CSRFProtect(app)
 
-@app.errorhandler(CSRFError)
-def handle_csrf_error(e):
-    app.logger.error(f"CSRF error: {e.description}")
-    flash("⚠️ CSRF token missing or invalid. Please refresh the page and try again.", "error")
-    return redirect(url_for('contact'))
 
 
 EMAIL_HOST = os.getenv('EMAIL_HOST')
@@ -30,21 +25,9 @@ EMAIL_PORT = os.getenv('EMAIL_PORT')
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")  
 
-
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = '587'
-# EMAIL_ADDRESS = "staraiinternational@gmail.com"
-# EMAIL_PASSWORD = 'ppis pfap upqq bfea'
+TO_EMAIL = os.getenv("EMAIL_ADDRESS")  
 
 
-TO_EMAIL = "staraiinternational@gmail.com"  
-
-# @app.route('/static/<path:filename>')
-# def static_files(filename):
-#     response = make_response(send_from_directory('static', filename))
-#     # Cache for 30 days (2592000 seconds) and mark as immutable
-#     response.headers['Cache-Control'] = 'public, max-age=2592000, immutable'
-#     return response
 
 csp = {
     'default-src': [
@@ -97,8 +80,6 @@ def coming_soon():
 @limiter.limit("5 per hour")
 def contact():
     if request.method == 'POST':
-        print(f"Session keys: {list(session.keys())}")
-        print(f"CSRF token in session: {session.get('csrf_token')}")
         data = request.form
         name = data.get('name')
         email = data.get('email')
