@@ -13,6 +13,8 @@ flask-minify = "*"
 flask-wtf = "*"
 flask-limiter = "*"
 flask-talisman = "*"
+beautifulsoup4 = "*"
+requests = "*"
 
 [dev-packages]
 

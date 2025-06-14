@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, flash, redirect, session
+from flask import Flask, render_template, request, url_for, flash, redirect, send_from_directory
 import smtplib
 from email.mime.text import MIMEText
 import os
@@ -8,6 +8,7 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_talisman import Talisman
 from flask_wtf.csrf import CSRFError
+
 
 
 app = Flask(__name__)
@@ -126,6 +127,14 @@ def add_cache_headers(response):
         response.headers['Cache-Control'] = 'public, max-age=31536000'
     return response
 
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static', 'sitemap.xml')
+
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
 
 
 if __name__ == '__main__':

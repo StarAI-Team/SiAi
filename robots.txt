@@ -1,0 +1,5 @@
+# static/robots.txt
+User-agent: *
+Disallow:
+
+Sitemap: https://www.siai.co.zw/sitemap.xml
